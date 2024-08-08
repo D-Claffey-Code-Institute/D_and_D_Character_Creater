@@ -24,12 +24,12 @@ def create_rand_character():
         # creates a list scores, generating a number between 1 and 6, 3 times
         # sums the results and assigns them to each ability in the abilities dictionary
         for i in range(6):
-            
             scores = [random.randint(1, 6) for x in range(3)]
             abilities[list(abilities.keys())[i]] = sum(scores)
         return abilities
 
     final_abilities = rand_ability_scores()
+    
         
 
     def rand_name(fnames, lnames):
@@ -64,7 +64,7 @@ def create_rand_character():
             print("Invalid input: Max characters is 10. Try again...")          
         else:
             break
-        first_name = input("Enter your Characters first name\nor press enter for a random name:\n")   
+        first_name = input("Enter your Characters last name\nor press enter for a random name:\n")   
     if not first_name: 
         first_name = random.choice(fnames)
 
@@ -127,11 +127,40 @@ def create_rand_character():
     race_occupation = rand_race_and_occupation(races, occupations)
 
     # Final print statement taking Name, Race, Occupation and Abilities
-    print(f"Name: {full_name}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
+    
+    print("------------------------------------")
+    print(f"Name: {full_name}")
+    print("                -----               ")
+    print(f"Race/Class: {race_occupation}")
+    print("                -----               ")
+    print(f"Abilities: {final_abilities}")
+    print("                -----               ")
+    print(f"Alignment: {alignment}")
+    print("------------------------------------")
 
 
+    def repeat():
+        repeat = input("Would you like to create another character? type 'yes' or 'no':\n")
+        while repeat:
+            if not repeat.isalpha():
+                print("Invalid input. Please enter only 'yes' or 'no'...")
+            elif repeat == "yes":
+                random_character = create_rand_character()
+            elif repeat == "no":
+                print("Thanks for using my app")
+                exit()
+            else:
+                break
+
+    repeat()
+    
+     
 welcome.welcome()
 
 random_character = create_rand_character()
+
+
+
+
 
 
