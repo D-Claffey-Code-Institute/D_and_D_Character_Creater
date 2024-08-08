@@ -1,7 +1,5 @@
 import random
-import pyfiglet
-from pyfiglet import Figlet
-heading = pyfiglet.figlet_format("D and D Character Creator")
+
 def create_rand_character():
     """
     Main Function:  Gives ability to the user to pick a name or let a random one be choosen.
@@ -130,7 +128,7 @@ def create_rand_character():
     # Final print statement taking Name, Race, Occupation and Abilities
     print(f"Name: {full_name}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
 
-print(heading)
+print()
 random_character = create_rand_character()
 
 
