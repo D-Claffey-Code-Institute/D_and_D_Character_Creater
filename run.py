@@ -21,8 +21,8 @@ def rand_ability_scores():
         abilities[list(abilities.keys())[i]] = sum(scores)
     return abilities
 
-result = rand_ability_scores()
-print(result)
+final_abilities = rand_ability_scores()
+print(final_abilities)
 
 
 
@@ -67,4 +67,4 @@ print(alignment)
 
 
 
-print(f"Name: {fullname}\n ")
+print(f"Name: {fullname}\nAbilities: {final_abilities}\nAlignment: {alignment}")
