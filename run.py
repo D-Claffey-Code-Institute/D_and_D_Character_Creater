@@ -24,6 +24,8 @@ def rand_ability_scores():
 result = rand_ability_scores()
 print(result)
 
+
+
 def rand_name(fnames, lnames):
     """
     Generates a random name from a list of popular D and D names 
@@ -44,3 +46,25 @@ lnames = ["Lendor", "Etril", "Sakaris", "Witchelm",
 
 fullname = rand_name(fnames, lnames)
 print(fullname)
+
+
+
+def rand_alignment(alignments):
+    """
+    Generates a random alignment 
+    """
+    alignment = random.choice(alignments)
+    return f"{alignment}"
+    
+alignments = ["Lawful Good", "Neutral Good", "Chaotic Good", 
+"Lawful Neutral", "True Neutral", "Chaotic Neutral", 
+"Lawful Evil", "Neutral Evil", "Chaotic Evil"]
+
+alignment = rand_alignment(alignments)
+print(alignment)
+
+
+
+
+
+print(f"Name: {fullname}\n ")
