@@ -22,7 +22,7 @@ def rand_ability_scores():
     return abilities
 
 final_abilities = rand_ability_scores()
-print(final_abilities)
+
 
 
 
@@ -30,6 +30,8 @@ def rand_name(fnames, lnames):
     """
     Generates a random name from a list of popular D and D names 
     """
+    
+    # Takes a random first and last name from a set list
     fname = random.choice(fnames)
     lname = random.choice(lnames)
     return f"{fname} {lname}"
@@ -45,7 +47,7 @@ lnames = ["Lendor", "Etril", "Sakaris", "Witchelm",
 "Everflame"]
 
 fullname = rand_name(fnames, lnames)
-print(fullname)
+
 
 
 
@@ -53,6 +55,8 @@ def rand_alignment(alignments):
     """
     Generates a random alignment 
     """
+
+    # Takes a random alignment from a set list
     alignment = random.choice(alignments)
     return f"{alignment}"
     
@@ -61,7 +65,7 @@ alignments = ["Lawful Good", "Neutral Good", "Chaotic Good",
 "Lawful Evil", "Neutral Evil", "Chaotic Evil"]
 
 alignment = rand_alignment(alignments)
-print(alignment)
+
 
 
 
