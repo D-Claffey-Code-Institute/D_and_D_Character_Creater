@@ -1,4 +1,5 @@
 import random
+import welcome
 
 def create_rand_character():
     """
@@ -128,7 +129,9 @@ def create_rand_character():
     # Final print statement taking Name, Race, Occupation and Abilities
     print(f"Name: {full_name}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
 
-print()
+
+welcome.welcome()
+
 random_character = create_rand_character()
 
 
