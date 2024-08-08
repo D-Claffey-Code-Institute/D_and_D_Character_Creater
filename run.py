@@ -1,9 +1,13 @@
 import random
+import pyfiglet
+heading = pyfiglet.figlet_format("D and D Character Creator")
 def create_rand_character():
     """
     Main Function:  Gives ability to the user to pick a name or let a random one be choosen.
                     Randomly assigns ability scores, race, class and alignment
     """
+
+
     def rand_ability_scores():
         """
         Randonmly assigns a score to all abilities based an 3 d6 rolls. (a d6 is a six sided die)
@@ -16,18 +20,17 @@ def create_rand_character():
             "Wisdom": 0,
             "Charisma": 0
             }
+
+        # creates a list scores, generating a number between 1 and 6, 3 times
+        # sums the results and assigns them to each ability in the abilities dictionary
         for i in range(6):
-            # creates a list scores, generating a number between 1 and 6, 3 times
-            # sums the results and assigns them to each ability in the abilities dictionary
+            
             scores = [random.randint(1, 6) for x in range(3)]
             abilities[list(abilities.keys())[i]] = sum(scores)
         return abilities
 
     final_abilities = rand_ability_scores()
         
-
-
-
 
     def rand_name(fnames, lnames):
         """
@@ -51,7 +54,7 @@ def create_rand_character():
     "Thundershade", "Thalor", "Wildgrove", 
     "Everflame"]
     
-    # User input for first name, only allows letters
+    # User input for first name, only allows letters and a max lenght of 10 characters
     first_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
     
     while first_name:
@@ -65,7 +68,7 @@ def create_rand_character():
     if not first_name: 
         first_name = random.choice(fnames)
 
-
+    # User input for last name, only allows letters and a max lenght of 10 characters
     last_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")    
     while last_name:
         if not last_name.isalpha():
@@ -78,9 +81,6 @@ def create_rand_character():
     if not last_name: 
         last_name = random.choice(lnames)
     
-    
-    
-
     full_name = f"{first_name} {last_name}"
 
 
@@ -94,7 +94,8 @@ def create_rand_character():
         # Takes a random alignment from a set list
         alignment = random.choice(alignments)
         return f"{alignment}"
-        
+    
+    # List of Alignments    
     alignments = ["Lawful Good", "Neutral Good", "Chaotic Good", 
     "Lawful Neutral", "True Neutral", "Chaotic Neutral", 
     "Lawful Evil", "Neutral Evil", "Chaotic Evil"]
@@ -111,20 +112,24 @@ def create_rand_character():
         race = random.choice(races)
         occupation = random.choice(occupations)
         return f"{race} {occupation}"
-        
+    
+    # List of Races    
     races = ["Dragonborn", "Dwarf(Hill)", "Dwarf(Mountain)", 
     "Elf(Drow)", "Elf(High)", "Elf(Wood)", "Gnome(Forest)", 
     "Gnome(Rock)", "Half-Elf", "Half-Orc", "Halfling(Lightfoot)", 
     "Halfling(Stout)", "Human", "Tiefling"]
+
+    # List of Classes ('occupation' used as class is a restricted keyword)
     occupations = ["Barbarian", "Bard", "Cleric", "Druid", 
     "Fighter", "Monk", "Paladin", "Ranger", "Rogue", 
     "Sorcerer", "Warlock", "Wizard"]
 
     race_occupation = rand_race_and_occupation(races, occupations)
 
-
+    # Final print statement taking Name, Race, Occupation and Abilities
     print(f"Name: {full_name}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
 
+print(heading)
 random_character = create_rand_character()
 
 
