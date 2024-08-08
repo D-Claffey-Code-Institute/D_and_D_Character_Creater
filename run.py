@@ -1,5 +1,6 @@
 import random
 import pyfiglet
+from pyfiglet import Figlet
 heading = pyfiglet.figlet_format("D and D Character Creator")
 def create_rand_character():
     """
