@@ -1,10 +1,12 @@
 import random
 def create_rand_character():
+    """
+    Main Function:  Gives ability to the user to pick a name or let a random one be choosen.
+                    Randomly assigns ability scores, race, class and alignment
+    """
     def rand_ability_scores():
         """
-        Generates six random ability scores simulating rolling 3 six sided dice
-        for each ability: Strenght, Dexterity, Constitution, Intelligence, Wisdom
-        and Charisma. 
+        Randonmly assigns a score to all abilities based an 3 d6 rolls. (a d6 is a six sided die)
         """
         abilities = {
             "Strenght": 0,
@@ -13,22 +15,23 @@ def create_rand_character():
             "Intelligence": 0,
             "Wisdom": 0,
             "Charisma": 0
-        }
+            }
         for i in range(6):
-        # creates a list scores, generating a number between 1 and 6, 3 times
-        # sums the results and assigns them to each ability in the abilities dictionary
+            # creates a list scores, generating a number between 1 and 6, 3 times
+            # sums the results and assigns them to each ability in the abilities dictionary
             scores = [random.randint(1, 6) for x in range(3)]
             abilities[list(abilities.keys())[i]] = sum(scores)
         return abilities
 
     final_abilities = rand_ability_scores()
+        
 
 
 
 
     def rand_name(fnames, lnames):
         """
-        Generates a random name from a list of popular D and D names 
+        Allows the user to input their own name or generates a random name from a list of popular D and D names 
         """
         
         # Takes a random first and last name from a set list
@@ -36,29 +39,40 @@ def create_rand_character():
         lname = random.choice(lnames)
         return f"{fname} {lname}"
 
+    # List of random fantasy first names
     fnames = ["Bob", "Varis", "Nyx", "Luna", "Ash", 
     "Jack", "Lilith", "Nix", "Zephyer", "Rhogar", 
     "Cleric", "Bard", "Raven", "Ember", "Shadow"]
 
+    # List of random fantasy second names
     lnames = ["Lendor", "Etril", "Sakaris", "Witchelm", 
     "Oskandor", "Edoril", "Sakaris", "Calmaria", 
     "Lorvil", "Morningstar", "Caverns", 
     "Thundershade", "Thalor", "Wildgrove", 
     "Everflame"]
-
-    first_name = input("Enter your Characters first name\nor press enter for a random name:\n")
-    if first_name:
-        while not first_name.isalpha():
-            print("Invalid input. Please enter letters only.")
-            first_name = input("Enter your Characters first name\nor press enter for a random name:\n")
-    else:    
+    
+    # User input for first name, only allows letters
+    first_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
+    
+    while first_name:
+        if not first_name.isalpha():
+            print("Invalid input. Please enter letters only...")
+        elif len(first_name) > 10:
+            print("Invalid input: Max characters is 10. Try again...")          
+        else:
+            break
+        first_name = input("Enter your Characters first name\nor press enter for a random name:\n")   
+    if not first_name: 
         first_name = random.choice(fnames)
         
+    
+    
+    
     last_name = input("Enter your Characters last name\nor press enter for a random name:\n")
     if last_name:
         while not last_name.isalpha():
             print("Invalid input. Please enter letters only")
-            first_name = input("Enter your Characters last name\nor press enter for a random name:\n")
+            last_name = input("Enter your Characters last name\nor press enter for a random name:\n")
     else:    
         last_name = random.choice(lnames)
 
