@@ -64,12 +64,12 @@ def create_rand_character():
             print("Invalid input: Max characters is 10. Try again...")          
         else:
             break
-        first_name = input("Enter your Characters last name\nor press enter for a random name:\n")   
+        first_name = input("Enter your Characters first name\nor press enter for a random name:\n")   
     if not first_name: 
         first_name = random.choice(fnames)
 
     # User input for last name, only allows letters and a max lenght of 10 characters
-    last_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")    
+    last_name = input("Enter your Characters last name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")    
     while last_name:
         if not last_name.isalpha():
             print("Invalid input. Please enter letters only...")
@@ -77,7 +77,7 @@ def create_rand_character():
             print("Invalid input: Max characters is 10. Try again...")          
         else:
             break
-        last_name = input("Enter your Characters first name\nor press enter for a random name:\n")   
+        last_name = input("Enter your Characters last name\nor press enter for a random name:\n")   
     if not last_name: 
         last_name = random.choice(lnames)
     
