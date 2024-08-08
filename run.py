@@ -46,11 +46,23 @@ def create_rand_character():
     "Thundershade", "Thalor", "Wildgrove", 
     "Everflame"]
 
-    user_name = input("Enter your Characters name or press enter for a random name")
-    if user_name:
-        fullname = user_name
+    first_name = input("Enter your Characters first name\nor press enter for a random name:\n")
+    if first_name:
+        while not first_name.isalpha():
+            print("Invalid input. Please enter letters only.")
+            first_name = input("Enter your Characters first name\nor press enter for a random name:\n")
     else:    
-        fullname = rand_name(fnames, lnames)
+        first_name = random.choice(fnames)
+        
+    last_name = input("Enter your Characters last name\nor press enter for a random name:\n")
+    if last_name:
+        while not last_name.isalpha():
+            print("Invalid input. Please enter letters only")
+            first_name = input("Enter your Characters last name\nor press enter for a random name:\n")
+    else:    
+        last_name = random.choice(lnames)
+
+    full_name = f"{first_name} {last_name}"
 
 
 
@@ -92,7 +104,7 @@ def create_rand_character():
     race_occupation = rand_race_and_occupation(races, occupations)
 
 
-    print(f"Name: {fullname}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
+    print(f"Name: {full_name}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
 
 random_character = create_rand_character()
 
