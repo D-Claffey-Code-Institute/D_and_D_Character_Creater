@@ -67,8 +67,30 @@ alignments = ["Lawful Good", "Neutral Good", "Chaotic Good",
 alignment = rand_alignment(alignments)
 
 
+def rand_race_and_occupation(races, occupations):
+    """
+    Generates a random race and class
+    """
+
+    # Takes a random race and class from a set list
+    race = random.choice(races)
+    occupation = random.choice(occupations)
+    return f"{race} {occupation}"
+    
+races = ["Dragonborn", "Dwarf(Hill)", "Dwarf(Mountain)", 
+"Elf(Drow)", "Elf(High)", "Elf(Wood)", "Gnome(Forest)", 
+"Gnome(Rock)", "Half-Elf", "Half-Orc", "Halfling(Lightfoot)", 
+"Halfling(Stout)", "Human", "Tiefling"]
+occupations = ["Barbarian", "Bard", "Cleric", "Druid", 
+"Fighter", "Monk", "Paladin", "Ranger", "Rogue", 
+"Sorcerer", "Warlock", "Wizard"]
+
+race_occupation = rand_race_and_occupation(races, occupations)
 
 
 
 
-print(f"Name: {fullname}\nAbilities: {final_abilities}\nAlignment: {alignment}")
+
+
+
+print(f"Name: {fullname}\nRace/Class: {race_occupation}\nAbilities: {final_abilities}\nAlignment: {alignment}")
