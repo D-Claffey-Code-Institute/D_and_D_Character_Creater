@@ -23,3 +23,24 @@ def rand_ability_scores():
 
 result = rand_ability_scores()
 print(result)
+
+def rand_name(fnames, lnames):
+    """
+    Generates a random name from a list of popular D and D names 
+    """
+    fname = random.choice(fnames)
+    lname = random.choice(lnames)
+    return f"{fname} {lname}"
+
+fnames = ["Bob", "Varis", "Nyx", "Luna", "Ash", 
+"Jack", "Lilith", "Nix", "Zephyer", "Rhogar", 
+"Cleric", "Bard", "Raven", "Ember", "Shadow"]
+
+lnames = ["Lendor", "Etril", "Sakaris", "Witchelm", 
+"Oskandor", "Edoril", "Sakaris", "Calmaria", 
+"Lorvil", "Morningstar", "Caverns", 
+"Thundershade", "Thalor", "Wildgrove", 
+"Everflame"]
+
+fullname = rand_name(fnames, lnames)
+print(fullname)
