@@ -1,14 +1,21 @@
 """Program to run a simple D and D character Creator."""
-
 import random
 import welcome
 
 
 def create_rand_character():
-    """Main Function:  Gives ability to the user to pick a name or let a random one be choosen. Randomly assigns ability scores, race, class and alignment"""
+    """
+    Give ability to the user to pick a name or let a random one be choosen.
+
+    Randomly assigns ability scores, race, class and alignment.
+    """
 
     def rand_ability_scores():
-        """Randonmly assigns a score to all abilities based an 3 d6 rolls. (a d6 is a six sided die)"""
+        """
+        Randonmly assigns a score to all abilities based an 3 d6 rolls.
+
+        (a d6 is a six sided die).
+        """
         abilities = {
             "Strenght": 0,
             "Dexterity": 0,
@@ -18,8 +25,13 @@ def create_rand_character():
             "Charisma": 0,
         }
 
-        # creates a list scores, generating a number between 1 and 6, 3 times
-        # sums the results and assigns them to each ability in the abilities dictionary
+        """
+        Creates a list scores, generating a number between 1 and 6, 3 times.
+
+        Sums the results and assigns them to each ability
+
+        in the abilities dictionary.
+        """
         for i in range(6):
             scores = [random.randint(1, 6) for x in range(3)]
             abilities[list(abilities.keys())[i]] = sum(scores)
@@ -28,10 +40,7 @@ def create_rand_character():
     final_abilities = rand_ability_scores()
 
     def rand_name(fnames, lnames):
-        """
-        Allows the user to input their own name or generates a random name from a list of popular D and D names
-        """
-
+        """User to input their own name or generates a random name from a list of popular D and D names."""
         # Takes a random first and last name from a set list
         fname = random.choice(fnames)
         lname = random.choice(lnames)
@@ -75,10 +84,8 @@ def create_rand_character():
         "Everflame",
     ]
 
-    # User input for first name, only allows letters and a max lenght of 10 characters
-    first_name = input(
-        "Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n"
-    )
+    # User input for first name, allows letters and max lenght 10
+    first_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
     print("------------------------------------")
 
     while first_name:
@@ -97,7 +104,7 @@ def create_rand_character():
     if not first_name:
         first_name = random.choice(fnames)
 
-    # User input for last name, only allows letters and a max lenght of 10 characters
+    # User input for last name, allows letters and max lenght 10
     last_name = input(
         "Enter your Characters last name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n"
     )
@@ -227,4 +234,4 @@ def create_rand_character():
 
 welcome.welcome()
 
-random_character = create_rand_character()
+create_rand_character()
