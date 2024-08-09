@@ -1,25 +1,22 @@
+"""Program to run a simple D and D character Creator."""
+
 import random
 import welcome
 
-def create_rand_character():
-    """
-    Main Function:  Gives ability to the user to pick a name or let a random one be choosen.
-                    Randomly assigns ability scores, race, class and alignment
-    """
 
+def create_rand_character():
+    """Main Function:  Gives ability to the user to pick a name or let a random one be choosen. Randomly assigns ability scores, race, class and alignment"""
 
     def rand_ability_scores():
-        """
-        Randonmly assigns a score to all abilities based an 3 d6 rolls. (a d6 is a six sided die)
-        """
+        """Randonmly assigns a score to all abilities based an 3 d6 rolls. (a d6 is a six sided die)"""
         abilities = {
             "Strenght": 0,
             "Dexterity": 0,
             "Constitution": 0,
             "Intelligence": 0,
             "Wisdom": 0,
-            "Charisma": 0
-            }
+            "Charisma": 0,
+        }
 
         # creates a list scores, generating a number between 1 and 6, 3 times
         # sums the results and assigns them to each ability in the abilities dictionary
@@ -29,87 +26,123 @@ def create_rand_character():
         return abilities
 
     final_abilities = rand_ability_scores()
-    
-        
 
     def rand_name(fnames, lnames):
         """
-        Allows the user to input their own name or generates a random name from a list of popular D and D names 
+        Allows the user to input their own name or generates a random name from a list of popular D and D names
         """
-        
+
         # Takes a random first and last name from a set list
         fname = random.choice(fnames)
         lname = random.choice(lnames)
         return f"{fname} {lname}"
 
     # List of random fantasy first names
-    fnames = ["Bob", "Varis", "Nyx", "Luna", "Ash", 
-    "Jack", "Lilith", "Nix", "Zephyer", "Rhogar", 
-    "Cleric", "Bard", "Raven", "Ember", "Shadow"]
+    fnames = [
+        "Bob",
+        "Varis",
+        "Nyx",
+        "Luna",
+        "Ash",
+        "Jack",
+        "Lilith",
+        "Nix",
+        "Zephyer",
+        "Rhogar",
+        "Cleric",
+        "Bard",
+        "Raven",
+        "Ember",
+        "Shadow",
+    ]
 
     # List of random fantasy second names
-    lnames = ["Lendor", "Etril", "Sakaris", "Witchelm", 
-    "Oskandor", "Edoril", "Sakaris", "Calmaria", 
-    "Lorvil", "Morningstar", "Caverns", 
-    "Thundershade", "Thalor", "Wildgrove", 
-    "Everflame"]
-    
+    lnames = [
+        "Lendor",
+        "Etril",
+        "Sakaris",
+        "Witchelm",
+        "Oskandor",
+        "Edoril",
+        "Sakaris",
+        "Calmaria",
+        "Lorvil",
+        "Morningstar",
+        "Caverns",
+        "Thundershade",
+        "Thalor",
+        "Wildgrove",
+        "Everflame",
+    ]
+
     # User input for first name, only allows letters and a max lenght of 10 characters
-    first_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
+    first_name = input(
+        "Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n"
+    )
     print("------------------------------------")
-    
+
     while first_name:
         if not first_name.isalpha():
             print("Invalid input. Please enter letters only...")
             print("------------------------------------")
         elif len(first_name) > 10:
-            print("Invalid input: Max characters is 10. Try again...") 
-            print("------------------------------------")         
+            print("Invalid input: Max characters is 10. Try again...")
+            print("------------------------------------")
         else:
             break
-        first_name = input("Enter your Characters first name\nor press enter for a random name:\n") 
-        print("------------------------------------") 
-    if not first_name: 
+        first_name = input(
+            "Enter your Characters first name\nor press enter for a random name:\n"
+        )
+        print("------------------------------------")
+    if not first_name:
         first_name = random.choice(fnames)
 
     # User input for last name, only allows letters and a max lenght of 10 characters
-    last_name = input("Enter your Characters last name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
-    print("------------------------------------")    
+    last_name = input(
+        "Enter your Characters last name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n"
+    )
+    print("------------------------------------")
     while last_name:
         if not last_name.isalpha():
             print("Invalid input. Please enter letters only...")
             print("------------------------------------")
         elif len(last_name) > 10:
             print("Invalid input: Max characters is 10. Try again...")
-            print("------------------------------------")          
+            print("------------------------------------")
         else:
             break
-        last_name = input("Enter your Characters last name\nor press enter for a random name:\n")
-        print("------------------------------------")   
-    if not last_name: 
+        last_name = input(
+            "Enter your Characters last name\nor press enter for a random name:\n"
+        )
+        print("------------------------------------")
+    if not last_name:
         last_name = random.choice(lnames)
-    
+
     full_name = f"{first_name} {last_name}"
-
-
-
 
     def rand_alignment(alignments):
         """
-        Generates a random alignment 
+        Generates a random alignment
         """
 
         # Takes a random alignment from a set list
         alignment = random.choice(alignments)
         return f"{alignment}"
-    
-    # List of Alignments    
-    alignments = ["Lawful Good", "Neutral Good", "Chaotic Good", 
-    "Lawful Neutral", "True Neutral", "Chaotic Neutral", 
-    "Lawful Evil", "Neutral Evil", "Chaotic Evil"]
+
+    # List of Alignments
+    alignments = [
+        "Lawful Good",
+        "Neutral Good",
+        "Chaotic Good",
+        "Lawful Neutral",
+        "True Neutral",
+        "Chaotic Neutral",
+        "Lawful Evil",
+        "Neutral Evil",
+        "Chaotic Evil",
+    ]
 
     alignment = rand_alignment(alignments)
-
 
     def rand_race_and_occupation(races, occupations):
         """
@@ -120,22 +153,45 @@ def create_rand_character():
         race = random.choice(races)
         occupation = random.choice(occupations)
         return f"{race} {occupation}"
-    
-    # List of Races    
-    races = ["Dragonborn", "Dwarf(Hill)", "Dwarf(Mountain)", 
-    "Elf(Drow)", "Elf(High)", "Elf(Wood)", "Gnome(Forest)", 
-    "Gnome(Rock)", "Half-Elf", "Half-Orc", "Halfling(Lightfoot)", 
-    "Halfling(Stout)", "Human", "Tiefling"]
+
+    # List of Races
+    races = [
+        "Dragonborn",
+        "Dwarf(Hill)",
+        "Dwarf(Mountain)",
+        "Elf(Drow)",
+        "Elf(High)",
+        "Elf(Wood)",
+        "Gnome(Forest)",
+        "Gnome(Rock)",
+        "Half-Elf",
+        "Half-Orc",
+        "Halfling(Lightfoot)",
+        "Halfling(Stout)",
+        "Human",
+        "Tiefling",
+    ]
 
     # List of Classes ('occupation' used as class is a restricted keyword)
-    occupations = ["Barbarian", "Bard", "Cleric", "Druid", 
-    "Fighter", "Monk", "Paladin", "Ranger", "Rogue", 
-    "Sorcerer", "Warlock", "Wizard"]
+    occupations = [
+        "Barbarian",
+        "Bard",
+        "Cleric",
+        "Druid",
+        "Fighter",
+        "Monk",
+        "Paladin",
+        "Ranger",
+        "Rogue",
+        "Sorcerer",
+        "Warlock",
+        "Wizard",
+    ]
 
     race_occupation = rand_race_and_occupation(races, occupations)
 
     # Final print statement taking Name, Race, Occupation and Abilities
-    
+
     print("------------------------------------")
     print(f"Name: {full_name}")
     print("                -----               ")
@@ -146,9 +202,10 @@ def create_rand_character():
     print(f"Alignment: {alignment}")
     print("------------------------------------")
 
-
     def repeat():
-        repeat = input("Would you like to create another character? type 'yes' or 'no':\n")
+        repeat = input(
+            "Would you like to create another character? type 'yes' or 'no':\n"
+        )
         print("------------------------------------")
         while repeat:
             if not repeat.isalpha():
@@ -166,14 +223,8 @@ def create_rand_character():
                 break
 
     repeat()
-    
-     
+
+
 welcome.welcome()
 
 random_character = create_rand_character()
-
-
-
-
-
-
