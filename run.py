@@ -40,7 +40,12 @@ def create_rand_character():
     final_abilities = rand_ability_scores()
 
     def rand_name(fnames, lnames):
-        """User to input their own name or generates a random name from a list of popular D and D names."""
+        """
+        User to input their own name.
+
+        Or generate a random name from
+        a list of popular D and D names.
+        """
         # Takes a random first and last name from a set list
         fname = random.choice(fnames)
         lname = random.choice(lnames)
@@ -85,7 +90,9 @@ def create_rand_character():
     ]
 
     # User input for first name, allows letters and max lenght 10
-    first_name = input("Enter your Characters first name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n")
+    first_name = input("Enter your Characters first name\n"
+                       "Letters Only and Max lenght 10 characters\n"
+                       "Or press enter for a random name....\n")
     print("------------------------------------")
 
     while first_name:
@@ -98,7 +105,8 @@ def create_rand_character():
         else:
             break
         first_name = input(
-            "Enter your Characters first name\nor press enter for a random name:\n"
+            "Enter your Characters first name\n"
+            "or press enter for a random name:\n"
         )
         print("------------------------------------")
     if not first_name:
@@ -106,7 +114,9 @@ def create_rand_character():
 
     # User input for last name, allows letters and max lenght 10
     last_name = input(
-        "Enter your Characters last name\nLetters Only and Max lenght 10 characters\nOr press enter for a random name....\n"
+        "Enter your Characters last name\n"
+        "Letters Only and Max lenght 10 characters\n"
+        "Or press enter for a random name....\n"
     )
     print("------------------------------------")
     while last_name:
@@ -119,7 +129,8 @@ def create_rand_character():
         else:
             break
         last_name = input(
-            "Enter your Characters last name\nor press enter for a random name:\n"
+            "Enter your Characters last name\n"
+            "or press enter for a random name:\n"
         )
         print("------------------------------------")
     if not last_name:
@@ -128,10 +139,7 @@ def create_rand_character():
     full_name = f"{first_name} {last_name}"
 
     def rand_alignment(alignments):
-        """
-        Generates a random alignment
-        """
-
+        """Generate a random alignment."""
         # Takes a random alignment from a set list
         alignment = random.choice(alignments)
         return f"{alignment}"
@@ -152,10 +160,7 @@ def create_rand_character():
     alignment = rand_alignment(alignments)
 
     def rand_race_and_occupation(races, occupations):
-        """
-        Generates a random race and class
-        """
-
+        """Generate a random race and class."""
         # Takes a random race and class from a set list
         race = random.choice(races)
         occupation = random.choice(occupations)
@@ -220,7 +225,7 @@ def create_rand_character():
                 print("------------------------------------")
             elif repeat == "yes":
                 print("------------------------------------")
-                random_character = create_rand_character()
+                create_rand_character()
             elif repeat == "no":
                 print("------------------------------------")
                 print("Thanks for using my app")
